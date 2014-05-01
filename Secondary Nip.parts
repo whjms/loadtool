@@ -1,0 +1,38 @@
+// This file contains a list of parts. Start a line with // to begin a comment.
+// The syntax for a part is as follows:
+//    name::load in KVA
+//    Where name is any string, and load is a decimal
+//    number
+// The part type is deduced from the filename. For example, to create a part 
+// type named 'Die', create a file named 'Die.parts' in the same directory as
+// the 'load-estimator.jar' file used to launch the program.
+//
+// You cannot add comments to the end of a line that contains a part.
+ 
+Sec. Nip %f, 2hp ::3.3::44
+Sec. Nip %f, 2hp C/W Cooling Roll::4.7::44
+Sec. Nip %f, 2hp::3.3::54
+Sec. Nip %f, 2hp C/W Cooling Roll::4.7::54
+Sec. Nip %f, 3hp::4.4::64
+Sec. Nip %f, 3hp C/W Cooling Roll::5.8::64
+Sec. Nip %f, 3hp::4.4::74
+Sec. Nip %f, 3hp C/W Cooling Roll::5.8::74
+Sec. Nip %f, 5hp::6.6::84
+Sec. Nip %f, 5hp C/W Cooling Roll::8::84
+Sec. Nip %f, 5hp::6.6::94
+Sec. Nip %f, 5hp C/W Cooling Roll::8::94
+Sec. Nip %f, 5hp::6.6::104
+Sec. Nip %f, 5hp C/W Cooling Roll::8::104
+Sec. Nip %f, 5hp::6.6::114
+Sec. Nip %f, 5hp C/W Cooling Roll::8::114
+Sec. Nip %f, 5hp::6.6::124
+Sec. Nip %f, 5hp C/W Cooling Roll::8::124
+Sec. Nip %f, 7.5hp::9.4::134
+Sec. Nip %f, 7.5hp C/W Cooling Roll::10.8::134
+Sec. Nip %f, 7.5hp::9.4::144
+Sec. Nip %f, 7.5hp C/W Cooling Roll::10.8::144
+Sec. Nip %f, 7.5hp::9.4::154
+Sec. Nip %f, 7.5hp C/W Cooling Roll::10.8::154
+
+
+

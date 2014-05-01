@@ -1,0 +1,21 @@
+// This file contains a list of parts. Start a line with // to begin a comment.
+// The syntax for a part is as follows:
+//    name::load in KVA
+//    Where name is any string, and load is a decimal
+//    number
+// The part type is deduced from the filename. For example, to create a part 
+// type named 'Die', create a file named 'Die.parts' in the same directory as
+// the 'load-estimator.jar' file used to launch the program.
+//
+// You cannot add comments to the end of a line that contains a part.
+ 
+IBC Blower 5hp::5.7
+IBC Blower 7.5hp::7.9
+IBC Blower 10hp::10.4
+IBC Blower 15hp::16.6
+IBC Blower 20hp::20.6
+IBC Blower 25hp::25.9
+IBC Blower 30hp::30.5
+IBC Blower 40hp::39.7
+IBC Blower 50hp::49.6
+IBC Blower 60hp::60.1

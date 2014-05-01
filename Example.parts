@@ -1,0 +1,26 @@
+// This file contains a list of parts. Start a line with // to begin a comment.
+// One thing to note is that any units used in a parts file are automatically
+// determined from the units 
+// There are two types of parts:
+//     1. Parts without measures
+//        These types of parts have no parameters in their names. The syntax is as
+//        follows:
+//
+//            name::load
+//
+//        where 'name' is the name of the part and load is the 
+//   1. Parts with measures
+//      These types of parts contain a measure in their name (e.x. "3in Ring").
+//      The syntax for these parts is as follo
+// The syntax for a part is as follows:
+//    name::load[::measure]
+// where 'name' is the name of the part, and 'load' is any number.
+// '::measure' is optional, and represents an additional measure that will 
+// The part type is deduced from the filename. For example, all parts in the file
+// 'Example.parts' are classified as 'Example' parts.
+// You cannot add comments to the end of a line.
+
+Example Part 1::15
+Example Part 1.1::16
+Example (Testing) Part::2.78
+Example part (%f)::1.23::50

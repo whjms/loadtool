@@ -1,0 +1,23 @@
+// This file contains a list of parts. Start a line with // to begin a comment.
+// The syntax for a part is as follows:
+//    name::load in KVA
+//    Where name is any string, and load is a decimal
+//    number
+// The part type is deduced from the filename. For example, to create a part 
+// type named 'Die', create a file named 'Die.parts' in the same directory as
+// the 'load-estimator.jar' file used to launch the program.
+//
+// You cannot add comments to the end of a line that contains a part.
+ 
+Single Turret Winder %f::10.5::44
+Single Turret Winder %f::10.5::54
+Single Turret Winder %f::13.4::64
+Single Turret Winder %f::19.3::74
+Single Turret Winder %f::19.3::84
+Single Turret Winder %f::21.5::94
+Single Turret Winder %f::21.5::104
+Single Turret Winder %f::21.5::114
+Single Turret Winder %f::21.5::124
+Single Turret Winder %f::24::134
+Single Turret Winder %f::24::144
+Single Turret Winder %f::24::154

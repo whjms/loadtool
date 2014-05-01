@@ -1,0 +1,21 @@
+// This file contains a list of parts. Start a line with // to begin a comment.
+// The syntax for a part is as follows:
+//    name::load,
+//    Where name is any string, and load is a decimal
+//    number
+// The part type is deduced from the filename. For example, to create a part 
+// type named 'Die', create a file named 'Die.parts' in the same directory as
+// the 'load-estimator.jar' file used to launch the program.
+//
+// You cannot add comments to the end of a line that contains a part.
+ 
+Extruder %f, 30hp Drive::48.3::2
+Extruder %f, 40hp Drive::58.3::2
+Extruder %f, 40hp Drive::66.1::2.5
+Extruder %f, 60hp Drive::86.1::2.5
+Extruder %f, 75hp Drive::106.7::3
+Extruder %f, 100hp Drive::127.7::3
+Extruder %f, 125hp Drive::167.6::3.5
+Extruder %f, 150hp Drive::186.6::3.5
+Extruder %f, 200hp Drive::237.6::3.5
+Extruder %f, 350hp Drive::427::4

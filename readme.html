@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LoadEstimator Documentation</title>
+	<style type="text/css">
+		body {
+			font-family: sans-serif;
+		}
+		ul {
+			list-style-type: none;
+			padding-left: 20px;
+		}
+		#title {
+			margin: 0;
+			background: #ccccdf;
+			padding: 5px;
+		}
+		#toc {
+			background: #ddd;
+			margin: 0;
+			padding: 10px;
+		}
+		#toc h3 {
+			margin: 0;
+		}
+		.section {
+			margin: 10px;
+			padding: 10px;
+		}
+		.section h2 {
+			border-bottom: 1px solid #555;
+		}
+		pre {
+			padding: 10px;
+			margin: 0;
+			background: #ccc;
+		}
+		.filename {
+			margin: 0;
+			padding: 5px;
+			background: #aaa;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+		#info {
+			text-align: right;
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="title">LoadEstimator Documentation</h1>
+	<div id="toc">
+	<h3>Table of Contents</h3>
+	<ul>
+		<li>
+			<a href="#config">Configuration</a>
+			<ul>
+				<li>
+					<a href="#config-main">loadtool.cfg</a>
+					<ul>
+						<li><a href="#config-main-syntax">Syntax</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#config-units">unitmappings.cfg</a>
+					<ul>
+						<li><a href="#config-units-syntax">Syntax</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#config-parts">Parts files</a>
+					<ul>
+						<li><a href="#config-parts-syntax">Syntax</a></li>
+					</ul>
+				</li>	
+			</ul>
+		</li>
+	</ul>
+	</div>
+	<h1 id="config">Configuration</h1>
+	<div class="section">
+	<h2 id="config-main">loadtool.cfg</h2>
+		<p>This file, located in the same directory as <code>loadtool.jar</code>, sets the following programwide parameters:</p>
+		<ol>
+			<li>Power consumption: a decimal value entered in KWh/kg.</li>
+			<li>Alternate power consumption: decimal value entered in KWh/kg. Used to provide a range for the final estimated running load.</li>
+			<li>Power factor: a decimal value.</li>
+			<li>Maximum power consumption: a decimal value, used for sizing utilities, entered in KWh/kg.</li>
+			<li>Units: the default unit set to use when reading in values from <code>.parts</code> files. Currently limited to
+				<code>metric</code> and <code>imperial</code>.</li>
+		</ol>
+		<h3 id="config-main-syntax">Syntax</h3>
+		<p><code>loadtool.cfg</code> has the exact syntax as follows. Newlines may be inserted between fields, and comments are prefixed with <code>//</code>:</p>
+		<p class="filename">loadtool.cfg</p>
+		<pre>
+// comment
+power_consumption
+alternate_power_consumption
+power_factor
+max_power_consumption
+units</pre>
+	</div>
+	<div class="section">
+	<h2 id="config-units">unitmappings.cfg</h2>
+		<p>Stores a list of mappings for measurements to and from metric and imperial units, stored in the same directory as . Since measurements in part names aren't directly converted (i.e. a 2" part is
+		equivalent to a 50mm part), declare the mappings for measurements in this file.</p>
+		<h3 id="config-units-syntax">Syntax</h3>
+		<p>Newlines may be inserted between entries, and comments are prefixed with <code>//</code>. The first entry in a line is a measurement in inches, and the next entry on the
+			same line (separated by any amount of whitespace besides newlines) is the corresponding measurement in millimeters. For example, to map a 2" measurement to 50mm and
+			2.5" to 65mm:</p>
+		<p class="filename">unitmappings.cfg</p>
+		<pre>
+2 	50
+2.5 	65</pre>
+	</div>
+	<div class="section">
+	<h2 id="config-parts">Parts files</h2>
+		<p>Parts are stored in <code>.parts</code> plain-text files located in the same directory as <code>loadtool.jar</code>. All parts files located in the executable's directory are automatically loaded and parsed. The filename of the <code>.parts</code> file dictates the type of all parts located within it.</p>
+		<h3 id="config-parts-syntax">Syntax</h3>
+		<p>The syntax for parts files is as follows. Comments are prefixed with <code>//</code>, and are ignored, and newlines can be inserted between entries. For example, to
+			declare 3 parts of type <i>Example Part</i>, place the following in <code>Example Part.parts</code>:</p>
+		<p class="filename">Example Part.parts</p>
+		<pre>
+// comment
+PART_1_DATA
+PART_2_DATA
+// comment 2
+PART_3_DATA</pre>
+		<p>Part data is stored one of two ways, depending on the part:</p>
+		<ol>
+			<li><p><b>Simple parts</b>: for parts that don't contain any parameters in their names, the syntax for a part's data is as follows:</p>
+				<pre>
+part_name::part_load</pre>
+				<p><code>part_name</code> can be any set of characters that does <i>NOT</i> contain <code>::</code>. <code>part_load</code> can be any decimal value.</p></li>
+			<li><p><b>Parts with parameters in names</b>: for parts that contain items such as measurements in their names (for example, <i>Part A (3in)</i> or <i>25cm Part B</i>).
+					The syntax for these parts is as follows:</p>
+				<pre>
+part_name::part_load::part_measurement_or_parameter</pre>
+				<p>The same rules for simple parts apply here, with the following changes:</p>
+				<p><code>part_name</code> contains the formatting placeholder <code>%f</code> in the location where <code>part_measurement_or_parameter</code> will be inserted. For example, to create a part named <i>Part A (3in)</i> with a load of 15, use the following entry:</p>
+				<pre>
+Part A (%f)::15::3</pre>
+				<p>Note that <code>units</code> has to be set to <code>imperial</code> in <code>loadtool.cfg</code> in order for the measure to be read as 3 inches.</p>
+				<p>Declaring parts this way allows the units in the application to be changed when creating a part list, automatically converting units in the part names.</p></li>
+		</ol>
+	</div>
+	<p id="info">&copy; 2013-2014 Qasim Ali</p>
+</body>
+</html>

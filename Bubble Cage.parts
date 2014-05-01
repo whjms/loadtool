@@ -1,0 +1,22 @@
+// This file contains a list of parts. Start a line with // to begin a comment.
+// The syntax for a part is as follows:
+//    name::load in KVA
+//    Where name is any string, and load is a decimal
+//    number
+// The part type is deduced from the filename. For example, to create a part 
+// type named 'Die', create a file named 'Die.parts' in the same directory as
+// the 'load-estimator.jar' file used to launch the program.
+//
+// You cannot add comments to the end of a line that contains a part.
+ 
+Bubble Cage %f with Lift::2::44
+Bubble Cage %f with Lift::2::54
+Bubble Cage %f with Lift::2::64
+Bubble Cage %f with Lift::2::74
+Bubble Cage %f with Lift::2::84
+Bubble Cage %f with Lift::2::94
+Bubble Cage %f with Lift::3::104
+Bubble Cage %f with Lift::3::114
+Bubble Cage %f with Lift::3::124
+Bubble Cage %f with Lift::3::134
+Bubble Cage %f with Lift::3::144
