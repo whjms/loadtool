@@ -4,7 +4,11 @@
 	<title>LoadEstimator Documentation</title>
 	<style type="text/css">
 		body {
+			margin: 0;
 			font-family: sans-serif;
+		}
+		h1 {
+			padding: 5px;
 		}
 		ul {
 			list-style-type: none;
@@ -23,6 +27,9 @@
 		#toc h3 {
 			margin: 0;
 		}
+		p {
+			line-height: 1.6em;
+		}
 		.section {
 			margin: 10px;
 			padding: 10px;
@@ -33,14 +40,23 @@
 		pre {
 			padding: 10px;
 			margin: 0;
-			background: #ccc;
+			background: #dedede;
 		}
 		.filename {
 			margin: 0;
 			padding: 5px;
 			background: #aaa;
+			font-weight: bold;
+			font-family: monospace;
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
+		}
+		code {
+			border-radius: 3px;
+			border: 1px solid gray;
+			padding: 2px;
+			margin: 2px;
+			background: #eee;
 		}
 		#info {
 			text-align: right;
@@ -87,8 +103,8 @@
 			<li>Alternate power consumption: decimal value entered in KWh/kg. Used to provide a range for the final estimated running load.</li>
 			<li>Power factor: a decimal value.</li>
 			<li>Maximum power consumption: a decimal value, used for sizing utilities, entered in KWh/kg.</li>
-			<li>Units: the default unit set to use when reading in values from <code>.parts</code> files. Currently limited to
-				<code>metric</code> and <code>imperial</code>.</li>
+			<li>Units: the default unit set to use when reading in values from <code>.parts</code> files. Must be either
+				<code>metric</code> or <code>imperial</code>.</li>
 		</ol>
 		<h3 id="config-main-syntax">Syntax</h3>
 		<p><code>loadtool.cfg</code> has the exact syntax as follows. Newlines may be inserted between fields, and comments are prefixed with <code>//</code>:</p>
@@ -103,7 +119,7 @@ units</pre>
 	</div>
 	<div class="section">
 	<h2 id="config-units">unitmappings.cfg</h2>
-		<p>Stores a list of mappings for measurements to and from metric and imperial units, stored in the same directory as . Since measurements in part names aren't directly converted (i.e. a 2" part is
+		<p>Stores a list of mappings for measurements to and from metric and imperial units, stored in the same directory as <code>loadtool.cfg</code>. Since measurements in part names aren't directly converted (i.e. a 2" part is
 		equivalent to a 50mm part), declare the mappings for measurements in this file.</p>
 		<h3 id="config-units-syntax">Syntax</h3>
 		<p>Newlines may be inserted between entries, and comments are prefixed with <code>//</code>. The first entry in a line is a measurement in inches, and the next entry on the
